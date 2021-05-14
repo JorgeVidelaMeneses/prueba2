@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Deportes Deportes</title>
+    <link rel="icon" type="image/jpg" href="imagenesprin/balones.jpg">
+  </head>
+  <body>
+      <!--Menu navegacion-->
+      <div class="container-fluid">
+        <div class="row">
+            <div class="col col-1">
+                <img src="imagenesprin/balones.jpg" alt="Logo pagina web" height="50px">
+            </div>
+            <div class="col col-11">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link" href="file:///C:/Users/jorge/OneDrive/Documentos/GitHub/prueba2/PruebaN2/Principal.html">PRINCIPAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="file:///C:/Users/jorge/OneDrive/Documentos/GitHub/prueba2/PruebaN2/Baloncesto.html">BALONCESTO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="file:///C:/Users/jorge/OneDrive/Documentos/GitHub/prueba2/PruebaN2/Futbol.html">FUTBOL</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="file:///C:/Users/jorge/OneDrive/Documentos/GitHub/prueba2/PruebaN2/Formulario.html">FORMULARIO</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="file:///C:/Users/jorge/OneDrive/Documentos/GitHub/prueba2/PruebaN2/Deportes.html">DEPORTES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="file:///C:/Users/jorge/OneDrive/Documentos/GitHub/prueba2/PruebaN2/Liga.html">LIGA ESPAÑOLA</a>
+                    </li>
+                  </ul>
+              </div>
+        </div>
+      </div>
+      <!--TITULO-->
+        <h1 class="text-center text-upeercase">FORMULARIO</h1>
+        <!--FORMULARIO-->
+        <div class="container" style="height: 75vh;">
+            <h1 class="text-center">Registrate Gratis Y Nos Ayudaras A Seguir Creciendo!</h1>
+          <form action="registro.html" method="POST" name="creacion" id="creacion" class="bla bar" onsubmit="verificarcontras(); return false">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Pedrito" >
+            </div>
+            <div class="form-group">
+                <label>Correo</label>
+                <input type="email" class="form-control" name="correo" id="correo" placeholder="Pedrito12@ejemplo.com" >
+            </div>
+            <div class="form-group">
+              <label for="pwd">Contraseña:</label>
+              <input type="password" class="form-control" id="contraseña" placeholder="pedrito1234" name="contraseña">
+            </div>
+            <div class="form-group">
+                <label>Repita su contraseña</label>
+                <input type="password" class="form-control" name ="contraseñarep"id="contraseñarep" placeholder="pedrito1234" >
+            </div>
+            <br>
+            <section>
+                <label for="info">¿Algo Que Pudiesemos Mejorar?</label>
+                <br>
+                <textarea name="info" id="info" cols="30" rows="10">
+                </textarea>
+            </section>
+          <br>
+            <div class="form-group">
+                <div id="error" class="alert alert-danger"></div>
+                <button type="reset" class="btn btn-danger">Limpiar</button>
+                <button type="submit" class="btn btn-primary">Crear</button>
+            </div>
+          <br>
+        </form> 
+        </div>
+        <!--jquery-->
+        <div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        </div>
+        <!--Script Formulario-->
+        <script>
+            $(document).ready(function(){
+
+                $("#error").hide();
+                $("#creacion").submit(function(){
+                    var mensaje = "Revisa los siguientes detalles en el formulario";
+                    if($("#nombre").val().trim().length == 0){
+                        mensaje = mensaje + "<br>Nombre" + " <br>-Usted No Ingreso Ningun Nombre";
+                    }
+                    if($("#correo").val().trim().length == 0){
+                        mensaje = mensaje + "<br>Correo:" + "<br>-Usted No Ingreso Su Correo";
+                    }
+                    if ($("#contraseña").val() != $("#contraseñarep").val()) {
+                        mensaje = mensaje + "<br>Contraseña:" + "<br>-Las contraseñas deben ser iguales";
+                    }
+                    if ($("#contraseña").val().trim().length == 0) {
+                        mensaje = mensaje + "<br>Contraseña:"+"<br>-Usted Debe Ingresar Una Contraseña";
+                    }
+                    if ($("#checko").is(':not(:checked)')) {
+                    }
+                    if(mensaje != "Revise Los Siguientes Detalles En El Formulario"){
+                        $("#error").html(mensaje);
+                        $("#error").show();
+                        event.preventDefault();
+                    }
+                });
+            });
+        </script>
+  </body>
+</html>
